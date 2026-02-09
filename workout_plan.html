@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增肌训练计划 | 4天上下肢分化</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0a0a0f;
+            --bg-glass: rgba(255, 255, 255, 0.04);
+            --bg-glass-hover: rgba(255, 255, 255, 0.08);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+            --accent-1: #a855f7;
+            /* Purple */
+            --accent-2: #ec4899;
+            /* Pink */
+            --accent-3: #22d3ee;
+            /* Cyan */
+            --accent-4: #f59e0b;
+            /* Amber */
+            --gradient-main: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f59e0b 100%);
+            --gradient-card: linear-gradient(145deg, rgba(168, 85, 247, 0.12), rgba(236, 72, 153, 0.08));
+            --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.3);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Gradient */
+        .bg-gradient {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 40% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            animation: gradient-shift 25s ease infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-8%, -8%) rotate(8deg);
+            }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 0 60px rgba(168, 85, 247, 0.5);
+        }
+
+        header p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Bar */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px 30px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            background: var(--bg-glass-hover);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        /* Day Grid */
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .day-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .day-card:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .day-card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .day-card:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .day-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-main);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .day-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: var(--bg-glass-hover);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.2);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .day-card:hover::before {
+            opacity: 1;
+        }
+
+        .day-card:hover::after {
+            opacity: 1;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-name {
+            font-size: 0.85rem;
+            color: var(--accent-1);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .day-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .day-tag {
+            background: var(--gradient-card);
+            color: var(--accent-2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Exercise List */
+        .exercise-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .exercise-item:last-child {
+            border-bottom: none;
+        }
+
+        .exercise-item:hover {
+            padding-left: 8px;
+            color: var(--accent-3);
+        }
+
+        .exercise-name {
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .exercise-sets {
+            background: rgba(34, 211, 238, 0.15);
+            color: var(--accent-3);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            white-space: nowrap;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .exercise-item:hover .exercise-sets {
+            background: rgba(34, 211, 238, 0.25);
+            transform: scale(1.05);
+        }
+
+        /* Diet Section */
+        .diet-section {
+            margin-top: 80px;
+            background: var(--gradient-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+
+        .diet-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-main);
+            opacity: 0.8;
+        }
+
+        .diet-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 32px;
+            letter-spacing: -0.01em;
+        }
+
+        .macro-flex {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .macro-box {
+            text-align: center;
+            min-width: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .macro-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .macro-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 12px;
+            border: 4px solid;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .macro-circle::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            padding: 4px;
+            background: inherit;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .macro-box:hover .macro-circle::before {
+            opacity: 0.3;
+        }
+
+        .macro-circle.protein {
+            border-color: var(--accent-1);
+            background: rgba(168, 85, 247, 0.15);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+        }
+
+        .macro-circle.carbs {
+            border-color: var(--accent-2);
+            background: rgba(236, 72, 153, 0.15);
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
+        }
+
+        .macro-circle.fat {
+            border-color: var(--accent-3);
+            background: rgba(34, 211, 238, 0.15);
+            box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+        }
+
+        .macro-box:hover .macro-circle {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .macro-circle .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .macro-circle .unit {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        .macro-label {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        /* Meal Timeline */
+        .meal-timeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .meal-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--bg-glass);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meal-row::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .meal-row:hover {
+            background: var(--bg-glass-hover);
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .meal-row:hover::before {
+            opacity: 1;
+        }
+
+        .meal-time {
+            font-weight: 800;
+            color: var(--accent-3);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .meal-content {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--bg-glass);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 1s both;
+            transition: all 0.3s ease;
+        }
+
+        .tips-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-main);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .tips-section::after {
+            content: '⚡';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .tips-section:hover::after {
+            opacity: 0.3;
+        }
+
+        .tips-section:hover {
+            background: var(--bg-glass-hover);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .tips-section:hover::before {
+            opacity: 1;
+        }
+
+        .tips-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-1);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            color: var(--text-dim);
+        }
+
+        .tips-section li {
+            margin-bottom: 12px;
+            padding-left: 38px;
+            position: relative;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .tips-section li:hover {
+            color: var(--text-main);
+            padding-left: 42px;
+        }
+
+        .tips-section li::before {
+            content: '►';
+            position: absolute;
+            left: 10px;
+            top: 0.2em;
+            color: var(--accent-2);
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tips-section li:hover::before {
+            transform: translateX(4px) scale(1.2);
+            color: var(--accent-1);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 16px 80px;
+            }
+
+            header {
+                padding: 40px 0 30px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .stats-row {
+                gap: 16px;
+            }
+
+            .stat {
+                padding: 16px 20px;
+            }
+
+            .stat-num {
+                font-size: 2rem;
+            }
+
+            .days-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .day-card {
+                padding: 24px;
+            }
+
+            .day-title {
+                font-size: 1.4rem;
+            }
+
+            .diet-section {
+                padding: 30px 20px;
+                margin-top: 60px;
+            }
+
+            .diet-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .macro-circle {
+                width: 95px;
+                height: 95px;
+            }
+
+            .meal-row {
+                grid-template-columns: 70px 1fr;
+                padding: 14px 16px;
+            }
+
+            .tips-section {
+                padding: 28px 20px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: rgba(168, 85, 247, 0.3);
+            color: var(--text-main);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-main);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #b366f8 0%, #ed5a9f 50%, #f7a91f 100%);
+        }
+
+        /* Floating Progress Indicator */
+        .progress-ring {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--bg-glass);
+            border: 2px solid var(--border-glass);
+            border-radius: 50%;
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-ring:hover {
+            transform: scale(1.1);
+            background: var(--bg-glass-hover);
+            box-shadow: 0 12px 32px rgba(168, 85, 247, 0.4);
+        }
+
+        .progress-ring::before {
+            content: '↑';
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 600px) {
+            .progress-ring {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            background: var(--bg-glass);
+            border: 2px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            backdrop-filter: blur(30px);
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border-glass);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-close {
+            background: var(--bg-glass-hover);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-2);
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--border-glass);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .modal-description {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-tips {
+            background: var(--gradient-card);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-glass);
+        }
+
+        .modal-tips h4 {
+            color: var(--accent-1);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .modal-tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-tips li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+        }
+
+        .modal-tips li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-3);
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                max-width: 95%;
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.4rem;
+            }
+
+            .modal-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-gradient"></div>
+
+    <div class="container">
+        <header>
+            <h1>💪 增肌训练计划</h1>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-num">53→65</div>
+                    <div class="stat-label">目标体重 kg</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">4天</div>
+                    <div class="stat-label">每周训练</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">17→20</div>
+                    <div class="stat-label">臂围目标 cm</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">2600</div>
+                    <div class="stat-label">日热量 kcal</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="days-grid">
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <div class="day-name">周一</div>
+                        <div class="day-title">胸部 + 三头</div>
+                    </div>
+                    <span class="day-tag">推力日</span>
+                </div>
+                <ul class="exercise-list">
+                    <li class="exercise-item" onclick="showExercise('标准俯卧撑')"><span
+                            class="exercise-name">标准俯卧撑</span><span class="exercise-sets">4×12-15</span></li>
+                    <li class="exercise-item" onclick="showExercise('宽距俯卧撑')"><span
+                            class="exercise-name">宽距俯卧撑</span><span class="exercise-sets">3×10-12</span></li>
+                    <li class="exercise-item" onclick="showExercise('窄距俯卧撑')"><span
+                            class="exercise-name">窄距俯卧撑</span><span class="exercise-sets">3×10-12</span></li>
+                    <li class="exercise-item" onclick="showExercise('椅子臂屈伸')"><span
+                            class="exercise-name">椅子臂屈伸</span><span class="exercise-sets">4×12-15</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <div class="day-name">周二</div>
+                        <div class="day-title">背部 + 二头</div>
+                    </div>
+                    <span class="day-tag">拉力日</span>
+                </div>
+                <ul class="exercise-list">
+                    <li class="exercise-item" onclick="showExercise('引体向上')"><span
+                            class="exercise-name">引体向上</span><span class="exercise-sets">4×力竭</span></li>
+                    <li class="exercise-item" onclick="showExercise('单臂哑铃划船')"><span
+                            class="exercise-name">单臂哑铃划船</span><span class="exercise-sets">4×每侧12</span></li>
+                    <li class="exercise-item" onclick="showExercise('哑铃弯举')"><span
+                            class="exercise-name">哑铃弯举</span><span class="exercise-sets">4×12-15</span></li>
+                    <li class="exercise-item" onclick="showExercise('锤式弯举')"><span
+                            class="exercise-name">锤式弯举</span><span class="exercise-sets">3×12-15</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <div class="day-name">周四</div>
+                        <div class="day-title">肩部 + 手臂强化</div>
+                    </div>
+                    <span class="day-tag">手臂爆发</span>
+                </div>
+                <ul class="exercise-list">
+                    <li class="exercise-item" onclick="showExercise('哑铃推举')"><span
+                            class="exercise-name">哑铃推举</span><span class="exercise-sets">4×12-15</span></li>
+                    <li class="exercise-item" onclick="showExercise('哑铃侧平举')"><span
+                            class="exercise-name">哑铃侧平举</span><span class="exercise-sets">4×12-15</span></li>
+                    <li class="exercise-item" onclick="showExercise('哑铃颈后臂屈伸')"><span
+                            class="exercise-name">哑铃颈后臂屈伸</span><span class="exercise-sets">4×12-15</span></li>
+                    <li class="exercise-item" onclick="showExercise('哑铃集中弯举')"><span
+                            class="exercise-name">哑铃集中弯举</span><span class="exercise-sets">3×12</span></li>
+                    <li class="exercise-item" onclick="showExercise('哑铃腕弯举')"><span
+                            class="exercise-name">哑铃腕弯举</span><span class="exercise-sets">3×20-25</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <div class="day-name">周五</div>
+                        <div class="day-title">腿部</div>
+                    </div>
+                    <span class="day-tag">30分钟</span>
+                </div>
+                <ul class="exercise-list">
+                    <li class="exercise-item" onclick="showExercise('深蹲')"><span class="exercise-name">深蹲</span><span
+                            class="exercise-sets">4×15-20</span></li>
+                    <li class="exercise-item" onclick="showExercise('保加利亚分腿蹲')"><span
+                            class="exercise-name">保加利亚分腿蹲</span><span class="exercise-sets">3×每腿10</span></li>
+                    <li class="exercise-item" onclick="showExercise('臀桥')"><span class="exercise-name">臀桥</span><span
+                            class="exercise-sets">3×15</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Diet -->
+        <div class="diet-section">
+            <h2>🍽️ 每日营养目标</h2>
+            <div class="macro-flex">
+                <div class="macro-box">
+                    <div class="macro-circle protein">
+                        <span class="value">130</span>
+                        <span class="unit">克</span>
+                    </div>
+                    <div class="macro-label">蛋白质</div>
+                </div>
+                <div class="macro-box">
+                    <div class="macro-circle carbs">
+                        <span class="value">380</span>
+                        <span class="unit">克</span>
+                    </div>
+                    <div class="macro-label">碳水化合物</div>
+                </div>
+                <div class="macro-box">
+                    <div class="macro-circle fat">
+                        <span class="value">75</span>
+                        <span class="unit">克</span>
+                    </div>
+                    <div class="macro-label">健康脂肪</div>
+                </div>
+            </div>
+
+            <div class="meal-timeline">
+                <div class="meal-row"><span class="meal-time">07:30</span><span class="meal-content">🍳 早餐：3个全蛋 + 2片全麦面包
+                        + 牛奶 + 香蕉</span></div>
+                <div class="meal-row"><span class="meal-time">10:00</span><span class="meal-content">🥜 加餐：坚果30g + 酸奶 +
+                        苹果</span></div>
+                <div class="meal-row"><span class="meal-time">12:30</span><span class="meal-content">🍚 午餐：2碗米饭 + 150g肉类
+                        + 蔬菜 + 鸡蛋</span></div>
+                <div class="meal-row"><span class="meal-time">15:30</span><span class="meal-content">🍌 训前：燕麦 + 香蕉 +
+                        牛奶（提供能量）</span></div>
+                <div class="meal-row"><span class="meal-time">19:00</span><span class="meal-content">🍜 晚餐：2碗米饭/面 +
+                        150g瘦肉 + 蔬菜 + 豆腐</span></div>
+                <div class="meal-row"><span class="meal-time">21:30</span><span class="meal-content">🥛 睡前：牛奶 +
+                        全麦饼干（缓释蛋白）</span></div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips-section">
+            <h3>⚡ 手臂增粗要点</h3>
+            <ul>
+                <li>三头肌占手臂2/3，重点练三头（俯卧撑、臂屈伸、颈后臂屈伸）</li>
+                <li>二头肌每周练2次，使用哑铃弯举+锤式弯举组合</li>
+                <li>小臂训练不可忽视，腕弯举让前臂更粗壮</li>
+                <li>17岁代谢快，每天至少2600 kcal，吃不下就喝奶昔</li>
+                <li>保证睡眠8-9小时，青春期生长激素分泌旺盛</li>
+                <li>每2周测量臂围，12周后评估效果（目标+3cm）</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="progress-ring" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+
+    <!-- Modal -->
+    <div id="exerciseModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-image" src="" alt="">
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-tips">
+                    <h4>💡 动作要点</h4>
+                    <ul id="modalTips"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Exercise data with images and descriptions
+        const exerciseData = {
+            '标准俯卧撑': {
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80',
+                description: '标准俯卧撑是最经典的胸部训练动作，主要锻炼胸大肌、三角肌前束和肱三头肌。',
+                tips: [
+                    '双手与肩同宽，手掌平放在地面',
+                    '身体保持一条直线，核心收紧',
+                    '下降时吸气，胸部接近地面',
+                    '推起时呼气，手臂伸直但不锁死',
+                    '控制速度，下降2秒，推起1秒'
+                ]
+            },
+            '宽距俯卧撑': {
+                image: 'https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=800&q=80',
+                description: '宽距俯卧撑增加胸部外侧的刺激，手距越宽，胸部参与度越高。',
+                tips: [
+                    '双手距离比肩宽1.5倍',
+                    '重点感受胸部外侧发力',
+                    '下降时肘部向外打开约45度',
+                    '保持肩胛骨稳定',
+                    '适合增加胸部宽度'
+                ]
+            },
+            '窄距俯卧撑': {
+                image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=800&q=80',
+                description: '窄距俯卧撑主要刺激肱三头肌和胸大肌内侧，是增粗手臂的关键动作。',
+                tips: [
+                    '双手距离与肩同宽或更窄',
+                    '肘部贴近身体两侧',
+                    '重点感受三头肌发力',
+                    '下降时胸部靠近双手',
+                    '对三头肌刺激最强'
+                ]
+            },
+            '椅子臂屈伸': {
+                image: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=800&q=80',
+                description: '椅子臂屈伸是训练肱三头肌的黄金动作，可以有效增加手臂后侧厚度。',
+                tips: [
+                    '双手撑在椅子边缘，手指向前',
+                    '臀部离开椅子，双腿伸直或弯曲',
+                    '下降时肘部弯曲至90度',
+                    '推起时三头肌发力',
+                    '保持身体垂直，避免前倾'
+                ]
+            },
+            '引体向上': {
+                image: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&q=80',
+                description: '引体向上是背部训练之王，全面刺激背阔肌、斜方肌和肱二头肌。',
+                tips: [
+                    '正握杠铃，手距略宽于肩',
+                    '肩胛骨下沉，启动背部肌肉',
+                    '拉起时胸部靠近杠铃',
+                    '顶峰收缩1秒，缓慢下降',
+                    '初学者可用弹力带辅助'
+                ]
+            },
+            '单臂哑铃划船': {
+                image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80',
+                description: '单臂哑铃划船可以单独刺激每侧背部，纠正肌力不平衡。',
+                tips: [
+                    '一手一膝支撑在凳子上',
+                    '另一手持哑铃自然下垂',
+                    '拉起时肘部贴近身体',
+                    '顶峰时肩胛骨向脊柱收缩',
+                    '感受背部肌肉挤压'
+                ]
+            },
+            '哑铃弯举': {
+                image: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?w=800&q=80',
+                description: '哑铃弯举是二头肌训练的基础动作，可以有效增加手臂围度。',
+                tips: [
+                    '站立，双手持哑铃自然下垂',
+                    '肘部固定在身体两侧',
+                    '弯举时掌心向上旋转',
+                    '顶峰收缩，感受二头肌挤压',
+                    '缓慢下降，保持张力'
+                ]
+            },
+            '锤式弯举': {
+                image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80',
+                description: '锤式弯举主要刺激肱肌和肱桡肌，增加手臂整体厚度。',
+                tips: [
+                    '掌心相对握住哑铃',
+                    '保持掌心朝内，不旋转',
+                    '肘部固定，前臂发力',
+                    '重点感受前臂外侧肌肉',
+                    '对增加手臂厚度效果显著'
+                ]
+            },
+            '哑铃推举': {
+                image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80',
+                description: '哑铃推举是肩部训练的核心动作，全面发展三角肌前中后束。',
+                tips: [
+                    '坐姿或站姿，哑铃举至肩部',
+                    '掌心向前，肘部略低于肩',
+                    '垂直向上推举至手臂伸直',
+                    '顶峰停顿，缓慢下降',
+                    '保持核心稳定，避免借力'
+                ]
+            },
+            '哑铃侧平举': {
+                image: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=800&q=80',
+                description: '哑铃侧平举专门针对三角肌中束，是增加肩宽的关键动作。',
+                tips: [
+                    '站立，双手持哑铃垂于身体两侧',
+                    '肘部微屈，向两侧抬起',
+                    '抬至与肩同高，停顿1秒',
+                    '小拇指略高于大拇指',
+                    '缓慢下降，保持肌肉张力'
+                ]
+            },
+            '哑铃颈后臂屈伸': {
+                image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80',
+                description: '颈后臂屈伸充分拉伸三头肌长头，是增加手臂后侧厚度的最佳动作。',
+                tips: [
+                    '双手握住一个哑铃，举过头顶',
+                    '肘部固定，前臂向后下降',
+                    '下降至前臂与上臂成90度',
+                    '三头肌发力推起哑铃',
+                    '保持肘部稳定，不外展'
+                ]
+            },
+            '哑铃集中弯举': {
+                image: 'https://images.unsplash.com/photo-1581009137042-c552e485697a?w=800&q=80',
+                description: '集中弯举可以孤立刺激二头肌，打造二头肌峰值。',
+                tips: [
+                    '坐姿，肘部抵在大腿内侧',
+                    '单手持哑铃，充分伸展',
+                    '弯举时专注二头肌收缩',
+                    '顶峰停顿2秒，挤压二头肌',
+                    '缓慢下降，保持控制'
+                ]
+            },
+            '哑铃腕弯举': {
+                image: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&q=80',
+                description: '腕弯举专门训练前臂屈肌，增加前臂围度和握力。',
+                tips: [
+                    '前臂放在凳子或大腿上',
+                    '手腕悬空，掌心向上',
+                    '仅用手腕向上卷曲哑铃',
+                    '顶峰收缩，感受前臂发力',
+                    '高次数训练，20-25次'
+                ]
+            },
+            '深蹲': {
+                image: 'https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?w=800&q=80',
+                description: '深蹲是腿部训练之王，全面刺激股四头肌、臀部和核心肌群。',
+                tips: [
+                    '双脚与肩同宽，脚尖略外展',
+                    '下蹲时臀部向后坐',
+                    '膝盖与脚尖方向一致',
+                    '下蹲至大腿平行地面',
+                    '保持背部挺直，核心收紧'
+                ]
+            },
+            '保加利亚分腿蹲': {
+                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80',
+                description: '保加利亚分腿蹲是单腿训练的王牌动作，强化腿部力量和平衡。',
+                tips: [
+                    '后脚放在凳子或台阶上',
+                    '前脚向前一步，保持平衡',
+                    '下蹲至前腿大腿平行地面',
+                    '前脚发力推起身体',
+                    '保持躯干直立，核心稳定'
+                ]
+            },
+            '臀桥': {
+                image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80',
+                description: '臀桥主要训练臀大肌和腘绳肌，改善臀部线条和力量。',
+                tips: [
+                    '仰卧，双脚踩地，膝盖弯曲',
+                    '臀部发力向上抬起',
+                    '顶峰时身体成一条直线',
+                    '挤压臀部，停顿2秒',
+                    '缓慢下降，不要完全放松'
+                ]
+            }
+        };
+
+        function showExercise(exerciseName) {
+            const data = exerciseData[exerciseName];
+            if (!data) return;
+
+            document.getElementById('modalTitle').textContent = exerciseName;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalImage').alt = exerciseName;
+            document.getElementById('modalDescription').textContent = data.description;
+
+            const tipsList = document.getElementById('modalTips');
+            tipsList.innerHTML = '';
+            data.tips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+
+            document.getElementById('exerciseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'exerciseModal' || event.target.classList.contains('modal-close')) {
+                document.getElementById('exerciseModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Show/hide scroll to top button
+        const scrollButton = document.querySelector('.progress-ring');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollButton.style.opacity = '1';
+                scrollButton.style.pointerEvents = 'auto';
+            } else {
+                scrollButton.style.opacity = '0';
+                scrollButton.style.pointerEvents = 'none';
+            }
+        });
+
+        // Initialize button as hidden
+        scrollButton.style.opacity = '0';
+        scrollButton.style.pointerEvents = 'none';
+        scrollButton.style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+
+</html>
