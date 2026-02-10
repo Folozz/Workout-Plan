@@ -72,5 +72,4 @@ MIT License
 ## 🙏 致谢 | Acknowledgments
 
 - 设计灵感来自现代健身应用
-- 动作演示来源：Tenor GIF
 - 字体来源：Google Fonts
