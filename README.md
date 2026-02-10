@@ -54,11 +54,6 @@ cd Workout-Plan
 - 动作示例图：替换 `exerciseData` 里的 `image` 链接（支持本地路径或外链）
 - 主题样式：修改 `:root` 下的 CSS 变量
 
-## ⚠️ 资源说明 | Asset Notes
-
-- 当前动作示例图为外链真人 GIF（`media1.tenor.com`）
-- 离线环境下 GIF 可能无法加载；如需离线可用，建议下载到本地并改为本地路径
-
 ## 📄 许可证 | License
 
 MIT License
