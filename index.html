@@ -1047,8 +1047,6 @@
                             class="exercise-name">哑铃颈后臂屈伸</span><span class="exercise-sets">4×12-15</span></li>
                     <li class="exercise-item" onclick="showExercise('哑铃集中弯举', '周四')"><span
                             class="exercise-name">哑铃集中弯举</span><span class="exercise-sets">3×12</span></li>
-                    <li class="exercise-item" onclick="showExercise('哑铃腕弯举', '周四')"><span
-                            class="exercise-name">哑铃腕弯举</span><span class="exercise-sets">3×20-25</span></li>
                 </ul>
             </div>
 
@@ -1062,7 +1060,7 @@
                     <span class="day-tag">30分钟</span>
                 </div>
                 <ul class="exercise-list">
-                    <li class="exercise-item" onclick="showExercise('深蹲', '周五')"><span class="exercise-name">深蹲</span><span
+                    <li class="exercise-item" onclick="showExercise('哑铃深蹲', '周五')"><span class="exercise-name">哑铃深蹲</span><span
                             class="exercise-sets">4×15-20</span></li>
                     <li class="exercise-item" onclick="showExercise('保加利亚分腿蹲', '周五')"><span
                             class="exercise-name">保加利亚分腿蹲</span><span class="exercise-sets">3×每腿10</span></li>
@@ -1182,8 +1180,8 @@
         const dayExercises = {
             '周一': ['标准俯卧撑', '宽距俯卧撑', '窄距俯卧撑', '椅子臂屈伸'],
             '周二': ['俯身哑铃划船', '单臂哑铃划船', '哑铃弯举', '锤式弯举'],
-            '周四': ['哑铃推举', '哑铃侧平举', '哑铃颈后臂屈伸', '哑铃集中弯举', '哑铃腕弯举'],
-            '周五': ['深蹲', '保加利亚分腿蹲', '臀桥', '箭步蹲'],
+            '周四': ['哑铃推举', '哑铃侧平举', '哑铃颈后臂屈伸', '哑铃集中弯举'],
+            '周五': ['哑铃深蹲', '保加利亚分腿蹲', '臀桥', '箭步蹲'],
             '周六': ['平板支撑', '卷腹', '俄罗斯转体', '波比跳']
         };
 
@@ -1237,7 +1235,7 @@
                 ]
             },
             '俯身哑铃划船': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/bent-over-row.gif',
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/dumbels-row.gif',
                 description: '俯身哑铃划船是背部训练的经典动作，全面刺激背阔肌、斜方肌和菱形肌。',
                 tips: [
                     '双脚与肩同宽，膝盖微屈',
@@ -1357,6 +1355,17 @@
                     '保持背部挺直，核心收紧'
                 ]
             },
+            '哑铃深蹲': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/squat.gif',
+                description: '哑铃深蹲是腿部训练的基础动作，双手持哑铃增加负重，全面刺激股四头肌、臀部和核心。',
+                tips: [
+                    '双手各持一个哑铃垂于身体两侧',
+                    '双脚与肩同宽，脚尖略外展',
+                    '下蹲时臀部向后坐',
+                    '膝盖与脚尖方向一致',
+                    '保持背部挺直，核心收紧'
+                ]
+            },
             '保加利亚分腿蹲': {
                 image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/db-bulgarian-split-squat.gif',
                 description: '保加利亚分腿蹲是单腿训练的王牌动作，强化腿部力量和平衡。',
@@ -1380,7 +1389,7 @@
                 ]
             },
             '箭步蹲': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/lunge.gif',
+                image: 'https://i.imgur.com/YxqDZ8K.gif',
                 description: '箭步蹲是单腿训练的经典动作，强化股四头肌、臀部和平衡能力。',
                 tips: [
                     '站立，向前迈出一大步',
@@ -1391,7 +1400,7 @@
                 ]
             },
             '平板支撑': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/plank.gif',
+                image: 'https://i.imgur.com/9FWgqKd.gif',
                 description: '平板支撑是核心训练的基础动作，全面强化腹部、背部和肩部稳定性。',
                 tips: [
                     '前臂和脚尖支撑身体',
@@ -1402,7 +1411,7 @@
                 ]
             },
             '卷腹': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/crunch.gif',
+                image: 'https://i.imgur.com/3cBkPHi.gif',
                 description: '卷腹是腹直肌训练的经典动作，塑造清晰的腹部线条。',
                 tips: [
                     '仰卧，双手放在耳后',
@@ -1413,7 +1422,7 @@
                 ]
             },
             '俄罗斯转体': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/russian-twist.gif',
+                image: 'https://i.imgur.com/kqVhXQP.gif',
                 description: '俄罗斯转体主要训练腹斜肌，增强核心旋转力量和稳定性。',
                 tips: [
                     '坐姿，上身后倾45度',
@@ -1424,7 +1433,7 @@
                 ]
             },
             '波比跳': {
-                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/burpee.gif',
+                image: 'https://i.imgur.com/Vvbalii.gif',
                 description: '波比跳是全身性有氧训练动作，提高心肺功能和爆发力。',
                 tips: [
                     '站立，下蹲双手撑地',
