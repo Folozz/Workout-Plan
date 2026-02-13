@@ -972,7 +972,7 @@
                     <div class="stat-label">目标体重 kg</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">4天</div>
+                    <div class="stat-num">5天</div>
                     <div class="stat-label">每周训练</div>
                 </div>
                 <div class="stat">
@@ -1018,8 +1018,8 @@
                     <span class="day-tag">拉力日</span>
                 </div>
                 <ul class="exercise-list">
-                    <li class="exercise-item" onclick="showExercise('引体向上', '周二')"><span
-                            class="exercise-name">引体向上</span><span class="exercise-sets">4×力竭</span></li>
+                    <li class="exercise-item" onclick="showExercise('俯身哑铃划船', '周二')"><span
+                            class="exercise-name">俯身哑铃划船</span><span class="exercise-sets">4×12-15</span></li>
                     <li class="exercise-item" onclick="showExercise('单臂哑铃划船', '周二')"><span
                             class="exercise-name">单臂哑铃划船</span><span class="exercise-sets">4×每侧12</span></li>
                     <li class="exercise-item" onclick="showExercise('哑铃弯举', '周二')"><span
@@ -1068,6 +1068,29 @@
                             class="exercise-name">保加利亚分腿蹲</span><span class="exercise-sets">3×每腿10</span></li>
                     <li class="exercise-item" onclick="showExercise('臀桥', '周五')"><span class="exercise-name">臀桥</span><span
                             class="exercise-sets">3×15</span></li>
+                    <li class="exercise-item" onclick="showExercise('箭步蹲', '周五')"><span
+                            class="exercise-name">箭步蹲</span><span class="exercise-sets">3×每腿12</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <div class="day-name">周六</div>
+                        <div class="day-title">核心 + 有氧</div>
+                    </div>
+                    <span class="day-tag">恢复日</span>
+                </div>
+                <ul class="exercise-list">
+                    <li class="exercise-item" onclick="showExercise('平板支撑', '周六')"><span
+                            class="exercise-name">平板支撑</span><span class="exercise-sets">4×60秒</span></li>
+                    <li class="exercise-item" onclick="showExercise('卷腹', '周六')"><span
+                            class="exercise-name">卷腹</span><span class="exercise-sets">4×20</span></li>
+                    <li class="exercise-item" onclick="showExercise('俄罗斯转体', '周六')"><span
+                            class="exercise-name">俄罗斯转体</span><span class="exercise-sets">3×每侧15</span></li>
+                    <li class="exercise-item" onclick="showExercise('波比跳', '周六')"><span
+                            class="exercise-name">波比跳</span><span class="exercise-sets">3×10-15</span></li>
                 </ul>
             </div>
         </div>
@@ -1158,9 +1181,10 @@
         // Day groupings for navigation
         const dayExercises = {
             '周一': ['标准俯卧撑', '宽距俯卧撑', '窄距俯卧撑', '椅子臂屈伸'],
-            '周二': ['引体向上', '单臂哑铃划船', '哑铃弯举', '锤式弯举'],
+            '周二': ['俯身哑铃划船', '单臂哑铃划船', '哑铃弯举', '锤式弯举'],
             '周四': ['哑铃推举', '哑铃侧平举', '哑铃颈后臂屈伸', '哑铃集中弯举', '哑铃腕弯举'],
-            '周五': ['深蹲', '保加利亚分腿蹲', '臀桥']
+            '周五': ['深蹲', '保加利亚分腿蹲', '臀桥', '箭步蹲'],
+            '周六': ['平板支撑', '卷腹', '俄罗斯转体', '波比跳']
         };
 
         let currentDay = '';
@@ -1210,6 +1234,17 @@
                     '下降时肘部弯曲至90度',
                     '推起时三头肌发力',
                     '保持身体垂直，避免前倾'
+                ]
+            },
+            '俯身哑铃划船': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/bent-over-row.gif',
+                description: '俯身哑铃划船是背部训练的经典动作，全面刺激背阔肌、斜方肌和菱形肌。',
+                tips: [
+                    '双脚与肩同宽，膝盖微屈',
+                    '俯身至上身与地面约45度',
+                    '双手持哑铃自然下垂',
+                    '拉起时肘部贴近身体',
+                    '顶峰收缩，挤压肩胛骨'
                 ]
             },
             '引体向上': {
@@ -1342,6 +1377,61 @@
                     '顶峰时身体成一条直线',
                     '挤压臀部，停顿2秒',
                     '缓慢下降，不要完全放松'
+                ]
+            },
+            '箭步蹲': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/lunge.gif',
+                description: '箭步蹲是单腿训练的经典动作，强化股四头肌、臀部和平衡能力。',
+                tips: [
+                    '站立，向前迈出一大步',
+                    '下蹲至前后腿膝盖均成90度',
+                    '前膝不超过脚尖',
+                    '后膝接近地面但不触地',
+                    '前脚发力推回起始位置'
+                ]
+            },
+            '平板支撑': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/plank.gif',
+                description: '平板支撑是核心训练的基础动作，全面强化腹部、背部和肩部稳定性。',
+                tips: [
+                    '前臂和脚尖支撑身体',
+                    '身体保持一条直线',
+                    '核心收紧，臀部不下沉',
+                    '保持自然呼吸',
+                    '目标坚持60秒以上'
+                ]
+            },
+            '卷腹': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/crunch.gif',
+                description: '卷腹是腹直肌训练的经典动作，塑造清晰的腹部线条。',
+                tips: [
+                    '仰卧，双手放在耳后',
+                    '膝盖弯曲，双脚平放',
+                    '腹部发力卷起上身',
+                    '下背部保持贴地',
+                    '顶峰收缩，缓慢下降'
+                ]
+            },
+            '俄罗斯转体': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/russian-twist.gif',
+                description: '俄罗斯转体主要训练腹斜肌，增强核心旋转力量和稳定性。',
+                tips: [
+                    '坐姿，上身后倾45度',
+                    '双脚离地或放地保持平衡',
+                    '双手合十或持重物',
+                    '左右旋转躯干',
+                    '保持核心收紧，控制节奏'
+                ]
+            },
+            '波比跳': {
+                image: 'https://cdn.jsdelivr.net/gh/Folozz/Workout-Plan@main/image/burpee.gif',
+                description: '波比跳是全身性有氧训练动作，提高心肺功能和爆发力。',
+                tips: [
+                    '站立，下蹲双手撑地',
+                    '双脚向后跳成俯卧撑姿势',
+                    '完成一个俯卧撑（可选）',
+                    '双脚跳回，起身跳跃',
+                    '保持连贯流畅的动作'
                 ]
             }
         };
