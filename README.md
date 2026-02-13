@@ -12,17 +12,18 @@ A responsive muscle-building workout plan page with training schedule, nutrition
 
 - 🎨 玻璃态 UI + 渐变视觉 + 动画过渡
 - 📱 完全响应式（桌面 / 平板 / 手机）
-- 🏋️ 4 天分化训练计划（上肢推、上肢拉、肩臂、下肢）
+- 🏋️ 5 天分化训练计划（胸三、背二、肩臂、下肢、核心有氧）
 - 🍽️ 每日营养目标与饮食时间建议
 - 🎬 动作弹窗使用真人动作分解 GIF 演示
 - ⏭️ 弹窗底部固定「上一个 / 下一个」按钮，无需下滑即可切换动作
 
 ## 📋 训练安排 | Training Split
 
-- **周一**: 胸部 + 三头肌（推力）
-- **周二**: 背部 + 二头肌（拉力）
+- **周一**: 胸部 + 三头肌
+- **周二**: 背部 + 二头肌
 - **周四**: 肩部 + 手臂强化
-- **周五**: 下肢训练
+- **周五**: 下肢训练（腿部 + 臀部）
+- **周六**: 核心 + 有氧（恢复日）
 
 ## 🛠️ 技术栈 | Tech Stack
 
@@ -51,7 +52,7 @@ cd Workout-Plan
 
 - 训练动作数据：编辑 `index.html` 中的 `exerciseData`
 - 每日动作顺序：编辑 `index.html` 中的 `dayExercises`
-- 动作示例图：替换 `exerciseData` 里的 `image` 链接（支持本地路径或外链）
+- 动作示例图：替换 `exerciseData` 里的 `image` 链接
 - 主题样式：修改 `:root` 下的 CSS 变量
 
 ## 📄 许可证 | License
